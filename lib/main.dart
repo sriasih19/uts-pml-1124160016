@@ -30,6 +30,28 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class InfoTile extends StatelessWidget {
+  const InfoTile({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
+
+  final IconData icon;
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(label),
+      subtitle: Text(value),
+    );
+  }
+}
+
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
@@ -75,10 +97,74 @@ class ProfilePage extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),
+                const SizedBox(height: 24),
+
+                // Card Kontak (poin b)
+                const Card(
+                  child: Column(
+                    children: [
+                      InfoTile(
+                        icon: Icons.email,
+                        label: 'Email',
+                        value: '1124160016@global.ac.id',
+                      ),
+                      InfoTile(
+                        icon: Icons.phone,
+                        label: 'Nomor HP',
+                        value: '082127780150',
+                      ),
+                      InfoTile(
+                        icon: Icons.school,
+                        label: 'SE-3',
+                        value: 'Kelas Kamu',
+                      ),
+                      InfoTile(
+                        icon: Icons.code,
+                        label: 'GitHub',
+                        value: 'sriasih19',
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // Card Keahlian/Hobi (poin c)
+                const Card(
+                  child: Column(
+                    children: [
+                      InfoTile(
+                        icon: Icons.flutter_dash,
+                        label: 'Keahlian',
+                        value: 'Flutter dan Dart',
+                      ),
+                      InfoTile(
+                        icon: Icons.menu_book,
+                        label: 'Hobi',
+                        value: 'Traveling',
+                      ),
+                      InfoTile(
+                        icon: Icons.music_note,
+                        label: 'Hobi',
+                        value: 'Mendengarkan musik',
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
               ],
             ),
           ),
         ),
+      ),
+
+      // FloatingActionButton + SnackBar (poin d)
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Terima kasih telah melihat profil saya')),
+          );
+        },
+        child: const Icon(Icons.favorite),
       ),
     );
   }
