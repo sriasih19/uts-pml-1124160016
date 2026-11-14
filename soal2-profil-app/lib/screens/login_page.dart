@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
     await Future.delayed(const Duration(seconds: 2));
     if (!mounted) return;
 
-    if (_userC.text == 'ubay' && _passC.text == '123456') {
+    if (_userC.text == 'ina@gmail.com' && _passC.text == '123456') {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const ProfilePage()),
