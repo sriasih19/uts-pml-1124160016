@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       valueListenable: themeNotifier,
       builder: (context, mode, _) {
         return MaterialApp(
-          title: 'Profil Ubay',
+          title: 'Profil Ina',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             useMaterial3: true,
