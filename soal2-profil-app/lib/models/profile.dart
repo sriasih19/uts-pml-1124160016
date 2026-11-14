@@ -19,3 +19,14 @@ class Profile {
     required this.github,
   });
 }
+
+Profile currentProfile = const Profile(
+  nama: 'Sri Asih Agustina',
+  nim: '1124160016',
+  prodi: 'Teknik Informatika',
+  kelas: 'SE-3',
+  bio: 'Mahasiswa yang suka belajar pemrograman mobile.',
+  email: 'INA@email.com',
+  hp: '081234567890',
+  github: 'github.com/sriasih19',
+);

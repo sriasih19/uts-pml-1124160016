@@ -3,7 +3,6 @@ import '../main.dart';
 import '../models/profile.dart';
 import '../widgets/info_tile.dart';
 import 'edit_profile_page.dart';
-import 'about_page.dart';
 import 'login_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -14,16 +13,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  Profile _profile = const Profile(
-    nama: 'Muhammad Ubaydillah',
-    nim: '1124160011',
-    prodi: 'Teknik Informatika',
-    kelas: 'A',
-    bio: 'Mahasiswa yang suka belajar pemrograman mobile.',
-    email: 'ubay@email.com',
-    hp: '081234567890',
-    github: 'github.com/usernamekamu',
-  );
+  
+  Profile get _profile => currentProfile;
 
   Future<void> _edit() async {
     final result = await Navigator.push<Profile>(
@@ -31,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
       MaterialPageRoute(builder: (_) => EditProfilePage(profile: _profile)),
     );
     if (result != null) {
-      setState(() => _profile = result);
+      setState(() => currentProfile = result);
     }
   }
 
@@ -56,8 +47,10 @@ class _ProfilePageState extends State<ProfilePage> {
         child: ListView(
           children: [
             DrawerHeader(
-              child: Text(_profile.nama,
-                  style: Theme.of(context).textTheme.titleLarge),
+              child: Text(
+                _profile.nama,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
             ),
             ListTile(
               leading: const Icon(Icons.person),
@@ -96,15 +89,21 @@ class _ProfilePageState extends State<ProfilePage> {
           const Center(
             child: CircleAvatar(
               radius: 64,
-              backgroundImage: AssetImage('assets/images/foto.jpg'),
+              backgroundImage: AssetImage('assets/images/foto1.jpg'),
             ),
           ),
           const SizedBox(height: 16),
           Center(
-            child: Text(_profile.nama,
-                style: Theme.of(context).textTheme.headlineSmall),
+            child: Text(
+              _profile.nama,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
           ),
-          Center(child: Text('${_profile.nim} • ${_profile.prodi} • Kelas ${_profile.kelas}')),
+          Center(
+            child: Text(
+              '${_profile.nim} • ${_profile.prodi} • Kelas ${_profile.kelas}',
+            ),
+          ),
           const SizedBox(height: 12),
           Text(_profile.bio, textAlign: TextAlign.center),
           const SizedBox(height: 16),
