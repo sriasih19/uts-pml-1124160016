@@ -1,17 +1,61 @@
-# soal2_profil_app
+# UTS PML - Aplikasi Profil Mahasiswa
 
-A new Flutter project.
+Aplikasi profil mahasiswa berbasis Flutter untuk tugas UTS.
 
-## Getting Started
+**Nama:** Sri Asih Agustina
+**NIM:** 1124160016
+**Prodi:** Teknik Informatika
+**Kelas:** SE-3
 
-This project is a starting point for a Flutter application.
+## Video Presentasi
 
-A few resources to get you started if this is your first Flutter project:
+https://www.youtube.com/@inaa4321
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Fitur
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Login** dengan validasi form (kolom wajib diisi, password minimal 6 karakter), tombol tampilkan/sembunyikan password, dan indikator loading
+- **Halaman Profil**: foto, nama, NIM, prodi, kelas, bio, serta email, nomor HP, dan GitHub
+- **Edit Profil** dengan validasi (nama wajib, format email, nomor HP 10-13 digit)
+- **Tentang Saya**: keahlian, hobi, dan riwayat pendidikan
+- **Drawer** navigasi (Profil, Tentang Saya, Keluar)
+- **Mode gelap / terang** lewat tombol di AppBar
+- Data profil tetap tersimpan di memori aplikasi saat logout
+
+## Akun Demo
+
+| Username | Password |
+|---|---|
+| `ina@gmail.com` | `123456` |
+
+## Struktur Kode
+
+```
+lib/
+├── main.dart                     # titik awal, tema, dan named routes
+├── models/
+│   └── profile.dart              # class Profile dan data currentProfile
+├── screens/
+│   ├── about_page.dart           # halaman Tentang Saya
+│   ├── edit_profile_page.dart    # form edit profil
+│   ├── profile_page.dart         # halaman profil utama
+│   └── login_page.dart           # halaman login
+└── widgets/
+    └── info_tile.dart            # widget kartu informasi
+```
+
+## Cara Menjalankan
+
+Syarat: Flutter SDK terbaru.
+
+```bash
+flutter pub get
+flutter run
+```
+
+## Build APK
+
+```bash
+flutter build apk --release
+```
+
+Hasilnya ada di `build/app/outputs/flutter-apk/app-release.apk`.
